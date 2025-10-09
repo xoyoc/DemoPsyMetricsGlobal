@@ -1,0 +1,43 @@
+name: psymetrics-global
+services:
+- name: web
+  source_dir: /
+  github:
+    repo: tu-usuario/tu-repositorio
+    branch: main
+  run_command: gunicorn psymetrics.wsgi:application
+  environment_slug: python
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  http_port: 8000
+  envs:
+  - key: DJANGO_SETTINGS_MODULE
+    value: psymetrics.settings
+  - key: DEBUG
+    value: "False"
+  - key: SECRET_KEY
+    value: "cambiar-por-tu-secret-key-seguro"
+  - key: ALLOWED_HOSTS
+    value: "*.ondigitalocean.app,tu-dominio.com"
+  - key: DATABASE_URL
+    value: "postgresql://usuario:password@host:port/database"
+  - key: STATIC_URL
+    value: "/static/"
+  - key: MEDIA_URL
+    value: "/media/"
+  routes:
+  - path: /
+  health_check:
+    http_path: /
+    initial_delay_seconds: 10
+    period_seconds: 10
+    timeout_seconds: 5
+    success_threshold: 1
+    failure_threshold: 3
+
+databases:
+- name: psymetrics-db
+  engine: PG
+  version: "15"
+  size: db-s-dev-database
+  num_nodes: 1

@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+
+{% block title %}Consultas Privadas - PsyMetrics Global{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Consultas Privadas
+        </h1>
+        <p class="text-xl text-primary-100 max-w-3xl mx-auto">
+            Orientación Experta de Profesionales Líderes
+        </p>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Tipos de Consulta
+            </h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                Programe consultas privadas con nuestro equipo de psicólogos certificados y especialistas en RRHH para discutir las necesidades específicas de su organización.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Consulta por Video</h3>
+                <p class="text-gray-600 mb-4">Sesiones virtuales individuales con nuestros expertos</p>
+                <div class="text-2xl font-bold text-primary-600 mb-4">60 minutos</div>
+                <a href="#psicologos" class="btn-primary">Reservar Consulta</a>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Revisión de Evaluación</h3>
+                <p class="text-gray-600 mb-4">Análisis detallado e interpretación de resultados</p>
+                <div class="text-2xl font-bold text-primary-600 mb-4">45 minutos</div>
+                <a href="#psicologos" class="btn-primary">Reservar Consulta</a>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Planificación Estratégica</h3>
+                <p class="text-gray-600 mb-4">Desarrollo de estrategia de talento a largo plazo</p>
+                <div class="text-2xl font-bold text-primary-600 mb-4">90 minutos</div>
+                <a href="#psicologos" class="btn-primary">Reservar Consulta</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Psychologists Section -->
+<section id="psicologos" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Nuestros Especialistas
+            </h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                Psicólogos certificados con amplia experiencia en evaluación organizacional
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="card text-center">
+                <div class="w-24 h-24 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-primary-600">SM</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Dra. Sarah Mitchell</h3>
+                <p class="text-primary-600 mb-2">Psicóloga Organizacional</p>
+                <p class="text-sm text-gray-600 mb-4">Desarrollo de Liderazgo y Evaluación Ejecutiva</p>
+                <p class="text-sm text-gray-500 mb-4">15+ años de experiencia</p>
+                <div class="mb-4">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        Disponible para consulta
+                    </span>
+                </div>
+                <button onclick="solicitarConsulta(1)" class="btn-primary w-full">
+                    Reservar Consulta
+                </button>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-24 h-24 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-primary-600">JC</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Dr. James Chen</h3>
+                <p class="text-primary-600 mb-2">Psicólogo Industrial</p>
+                <p class="text-sm text-gray-600 mb-4">Adquisición de Talento y Sistemas de Selección</p>
+                <p class="text-sm text-gray-500 mb-4">12+ años de experiencia</p>
+                <div class="mb-4">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        Disponible para consulta
+                    </span>
+                </div>
+                <button onclick="solicitarConsulta(2)" class="btn-primary w-full">
+                    Reservar Consulta
+                </button>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-24 h-24 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-primary-600">MR</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Dra. María Rodríguez</h3>
+                <p class="text-primary-600 mb-2">Psicóloga Clínica</p>
+                <p class="text-sm text-gray-600 mb-4">Salud Mental y Bienestar Laboral</p>
+                <p class="text-sm text-gray-500 mb-4">10+ años de experiencia</p>
+                <div class="mb-4">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        Disponible para consulta
+                    </span>
+                </div>
+                <button onclick="solicitarConsulta(3)" class="btn-primary w-full">
+                    Reservar Consulta
+                </button>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-24 h-24 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-primary-600">DT</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Dr. David Thompson</h3>
+                <p class="text-primary-600 mb-2">Psicólogo Cognitivo</p>
+                <p class="text-sm text-gray-600 mb-4">Evaluación Cognitiva y Análisis de Rendimiento</p>
+                <p class="text-sm text-gray-500 mb-4">18+ años de experiencia</p>
+                <div class="mb-4">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        Disponible para consulta
+                    </span>
+                </div>
+                <button onclick="solicitarConsulta(4)" class="btn-primary w-full">
+                    Reservar Consulta
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal for Consultation Request -->
+<div id="consultaModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden z-50">
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-white rounded-lg max-w-md w-full p-6">
+            <h3 class="text-lg font-semibold mb-4">Solicitar Consulta</h3>
+            <form id="consultaForm">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de Consulta</label>
+                        <select id="tipoConsulta" class="input-field" required>
+                            <option value="">Selecciona un tipo</option>
+                            <option value="1">Consulta por Video (60 min)</option>
+                            <option value="2">Revisión de Evaluación (45 min)</option>
+                            <option value="3">Planificación Estratégica (90 min)</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Fecha y Hora</label>
+                        <input type="datetime-local" id="fechaAgendada" class="input-field" required>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Motivo de la Consulta</label>
+                        <textarea id="motivoConsulta" rows="3" class="input-field" placeholder="Describe brevemente el motivo de tu consulta..." required></textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Notas Adicionales</label>
+                        <textarea id="notasCliente" rows="2" class="input-field" placeholder="Información adicional que consideres relevante..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="flex justify-end space-x-3 mt-6">
+                    <button type="button" onclick="cerrarModal()" class="btn-secondary">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        Solicitar Consulta
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+let psicologoSeleccionado = null;
+
+function solicitarConsulta(psicologoId) {
+    psicologoSeleccionado = psicologoId;
+    document.getElementById('consultaModal').classList.remove('hidden');
+}
+
+function cerrarModal() {
+    document.getElementById('consultaModal').classList.add('hidden');
+    psicologoSeleccionado = null;
+}
+
+document.getElementById('consultaForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData();
+    formData.append('psicologo_id', psicologoSeleccionado);
+    formData.append('tipo_consulta_id', document.getElementById('tipoConsulta').value);
+    formData.append('fecha_agendada', document.getElementById('fechaAgendada').value);
+    formData.append('motivo_consulta', document.getElementById('motivoConsulta').value);
+    formData.append('notas_cliente', document.getElementById('notasCliente').value);
+    
+    fetch('{% url "consultas:solicitar_consulta" %}', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Consulta solicitada correctamente');
+            cerrarModal();
+            // Redirigir a mis consultas
+            window.location.href = '{% url "consultas:mis_consultas" %}';
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error al enviar la solicitud');
+    });
+});
+
+// Cerrar modal al hacer clic fuera
+document.getElementById('consultaModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        cerrarModal();
+    }
+});
+</script>
+
+{% csrf_token %}
+{% endblock %}

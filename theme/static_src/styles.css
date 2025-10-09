@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom components with official PsyMetrics Global colors */
+@layer components {
+  .btn-primary {
+    @apply bg-primary-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-800 transition-colors duration-200 shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 text-primary-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors duration-200 shadow-md;
+  }
+  
+  .btn-accent {
+    @apply bg-accent-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-accent-600 transition-colors duration-200 shadow-md;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-200;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 transition-colors duration-200;
+  }
+  
+  .logo-text {
+    @apply text-primary-900 font-bold;
+  }
+  
+  .logo-accent {
+    @apply text-accent-500;
+  }
+  
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-900 to-primary-800;
+  }
+  
+  .gradient-accent {
+    @apply bg-gradient-to-br from-accent-500 to-accent-600;
+  }
+}

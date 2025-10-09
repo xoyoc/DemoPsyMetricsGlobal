@@ -1,0 +1,154 @@
+{% load static %}
+{% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PsyMetrics Global{% endblock %}</title>
+    {% tailwind_css %}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="{% url 'evaluaciones:home' %}" class="flex-shrink-0 flex items-center">
+                        <!-- Logo SVG -->
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <!-- Logo PsyMetrics Global -->
+                                <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Círculo de fondo -->
+                                    <circle cx="24" cy="24" r="20" fill="#0F2C4B"/>
+                                    
+                                    <!-- Psi griega -->
+                                    <path d="M24 12c-6.1 0-11 4.9-11 11s4.9 11 11 11 11-4.9 11-11S30.1 12 24 12zM24 30c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7S27.9 30 24 30z" fill="#36A89C"/>
+                                    
+                                    <!-- Línea vertical del Psi -->
+                                    <path d="M24 8v8" stroke="#36A89C" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <!-- Texto del logo -->
+                            <div class="ml-3">
+                                <div class="text-xl font-bold logo-text">PsyMetrics</div>
+                                <div class="text-sm font-medium logo-text">Global</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{% url 'evaluaciones:home' %}" class="text-gray-700 hover:text-accent-500 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Inicio</a>
+                    <a href="{% url 'evaluaciones:nosotros' %}" class="text-gray-700 hover:text-accent-500 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Nosotros</a>
+                    <a href="{% url 'evaluaciones:servicios' %}" class="text-gray-700 hover:text-accent-500 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Servicios</a>
+                    <a href="{% url 'consultas:consultas' %}" class="text-gray-700 hover:text-accent-500 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Consultas</a>
+                    <a href="{% url 'evaluaciones:contacto' %}" class="text-gray-700 hover:text-accent-500 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Contacto</a>
+                    
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'evaluaciones:dashboard' %}" class="btn-primary">Dashboard</a>
+                        <a href="{% url 'admin:logout' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">Cerrar Sesión</a>
+                    {% else %}
+                        <a href="{% url 'admin:login' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">Iniciar Sesión</a>
+                        <a href="#" class="btn-primary">Comenzar</a>
+                    {% endif %}
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-700 hover:text-primary-600 focus:outline-none focus:text-primary-600">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div x-show="mobileMenuOpen" x-transition class="md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="{% url 'evaluaciones:home' %}" class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+                <a href="{% url 'evaluaciones:nosotros' %}" class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium">Nosotros</a>
+                <a href="{% url 'evaluaciones:servicios' %}" class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium">Servicios</a>
+                <a href="{% url 'consultas:consultas' %}" class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium">Consultas</a>
+                <a href="{% url 'evaluaciones:contacto' %}" class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
+                
+                {% if user.is_authenticated %}
+                    <a href="{% url 'evaluaciones:dashboard' %}" class="btn-primary block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+                    <a href="{% url 'admin:logout' %}" class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium">Cerrar Sesión</a>
+                {% else %}
+                    <a href="{% url 'admin:login' %}" class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium">Iniciar Sesión</a>
+                    <a href="#" class="btn-primary block px-3 py-2 rounded-md text-base font-medium">Comenzar</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">PsyMetrics Global</h3>
+                    <p class="text-gray-300">Empoderamos a las organizaciones con evaluaciones psicológicas científicamente validadas para decisiones de talento más inteligentes.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-md font-semibold mb-4">Empresa</h4>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'evaluaciones:nosotros' %}" class="text-gray-300 hover:text-white">Nosotros</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Nuestro Equipo</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Carreras</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Prensa</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-md font-semibold mb-4">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'evaluaciones:servicios' %}" class="text-gray-300 hover:text-white">Evaluaciones Cognitivas</a></li>
+                        <li><a href="{% url 'evaluaciones:servicios' %}" class="text-gray-300 hover:text-white">Perfiles de Personalidad</a></li>
+                        <li><a href="{% url 'evaluaciones:servicios' %}" class="text-gray-300 hover:text-white">Potencial de Liderazgo</a></li>
+                        <li><a href="{% url 'evaluaciones:servicios' %}" class="text-gray-300 hover:text-white">Soluciones Personalizadas</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-md font-semibold mb-4">Recursos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Artículos de Investigación</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Casos de Estudio</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-300">© 2025 PsyMetrics Global. Todos los derechos reservados.</p>
+                    <p class="text-gray-300 mt-2 md:mt-0">Certificado ISO 9001:2015 | Acreditado por APA</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('app', () => ({
+                mobileMenuOpen: false
+            }))
+        })
+    </script>
+</body>
+</html>

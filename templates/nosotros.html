@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+
+{% block title %}Nosotros - PsyMetrics Global{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Acerca de PsyMetrics Global
+        </h1>
+        <p class="text-xl text-primary-100 max-w-3xl mx-auto">
+            Transformando la Adquisición de Talento a Través de la Ciencia
+        </p>
+    </div>
+</section>
+
+<!-- Mission Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-bold mb-6">Nuestra Misión</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    Somos un colectivo de psicólogos organizacionales, científicos de datos y profesionales de RRHH dedicados a revolucionar cómo las empresas identifican, evalúan y desarrollan el talento.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    Nuestras evaluaciones científicamente validadas proporcionan información profunda sobre habilidades cognitivas, rasgos de personalidad y competencias conductuales, permitiendo a las organizaciones tomar decisiones más inteligentes en reclutamiento, desarrollo y gestión del talento.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="{% url 'evaluaciones:servicios' %}" class="btn-primary">Nuestros Servicios</a>
+                    <a href="{% url 'consultas:consultas' %}" class="btn-secondary">Agendar Consulta</a>
+                </div>
+            </div>
+            <div class="bg-gray-100 rounded-lg p-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">Nuestros Valores</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-1">Excelencia Científica</h4>
+                            <p class="text-gray-600">Utilizamos metodologías basadas en evidencia y estándares internacionales.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-1">Innovación Continua</h4>
+                            <p class="text-gray-600">Desarrollamos constantemente nuevas herramientas y metodologías.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-1">Confidencialidad</h4>
+                            <p class="text-gray-600">Protegemos la privacidad y seguridad de todos los datos.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-1">Impacto Social</h4>
+                            <p class="text-gray-600">Contribuimos al desarrollo del talento y bienestar organizacional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Nuestro Equipo de Expertos
+            </h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                Psicólogos certificados y especialistas en RRHH con amplia experiencia en evaluación organizacional
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="card text-center">
+                <div class="w-24 h-24 bg-primary-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-primary-600">SM</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Dra. Sarah Mitchell</h3>
+                <p class="text-primary-600 mb-2">Psicóloga Organizacional</p>
+                <p class="text-sm text-gray-600 mb-4">Desarrollo de Liderazgo y Evaluación Ejecutiva</p>
+                <p class="text-sm text-gray-500">15+ años de experiencia</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-24 h-24 bg-primary-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-primary-600">JC</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Dr. James Chen</h3>
+                <p class="text-primary-600 mb-2">Psicólogo Industrial</p>
+                <p class="text-sm text-gray-600 mb-4">Adquisición de Talento y Sistemas de Selección</p>
+                <p class="text-sm text-gray-500">12+ años de experiencia</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-24 h-24 bg-primary-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-primary-600">MR</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Dra. María Rodríguez</h3>
+                <p class="text-primary-600 mb-2">Psicóloga Clínica</p>
+                <p class="text-sm text-gray-600 mb-4">Salud Mental y Bienestar Laboral</p>
+                <p class="text-sm text-gray-500">10+ años de experiencia</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-24 h-24 bg-primary-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-primary-600">DT</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Dr. David Thompson</h3>
+                <p class="text-primary-600 mb-2">Psicólogo Cognitivo</p>
+                <p class="text-sm text-gray-600 mb-4">Evaluación Cognitiva y Análisis de Rendimiento</p>
+                <p class="text-sm text-gray-500">18+ años de experiencia</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Certificaciones y Acreditaciones
+            </h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                Cumplimos con los más altos estándares de calidad y ética profesional
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Certificado ISO 9001:2015</h3>
+                <p class="text-gray-600">Sistema de gestión de calidad certificado internacionalmente</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Acreditado por APA</h3>
+                <p class="text-gray-600">Reconocimiento de la Asociación Americana de Psicología</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Cumplimiento GDPR</h3>
+                <p class="text-gray-600">Protección de datos personales según normativa europea</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

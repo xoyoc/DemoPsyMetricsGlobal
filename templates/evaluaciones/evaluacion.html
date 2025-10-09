@@ -1,0 +1,410 @@
+{% extends 'base.html' %}
+
+{% block title %}Evaluación NOM-035 - PsyMetrics Global{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Evaluación NOM-035
+        </h1>
+        <p class="text-xl text-primary-100 max-w-3xl mx-auto">
+            Evaluación de Factores de Riesgo Psicosocial en el Trabajo
+        </p>
+    </div>
+</section>
+
+<!-- Instructions Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="card">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Instrucciones</h2>
+            
+            <div class="space-y-4 text-gray-700">
+                <p>
+                    <strong>Estimado(a) participante:</strong>
+                </p>
+                
+                <p>
+                    Esta evaluación tiene como objetivo identificar los factores de riesgo psicosocial en el trabajo, 
+                    de acuerdo con la Norma Oficial Mexicana NOM-035-STPS-2018.
+                </p>
+                
+                <p>
+                    <strong>Instrucciones importantes:</strong>
+                </p>
+                
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>Lee cuidadosamente cada pregunta antes de responder</li>
+                    <li>Responde con sinceridad, no hay respuestas correctas o incorrectas</li>
+                    <li>Selecciona la opción que mejor refleje tu experiencia</li>
+                    <li>El tiempo estimado para completar la evaluación es de 15-30 minutos</li>
+                    <li>Puedes pausar y continuar en cualquier momento</li>
+                </ul>
+                
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-6">
+                    <div class="flex">
+                        <div class="ml-3">
+                            <p class="text-sm text-blue-700">
+                                <strong>Confidencialidad:</strong> Toda la información proporcionada es completamente confidencial 
+                                y será utilizada únicamente para fines de evaluación y mejora del ambiente laboral.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 flex justify-end">
+                <button onclick="iniciarEvaluacion()" class="btn-primary">
+                    Comenzar Evaluación
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Evaluation Form Section -->
+<section id="evaluacionForm" class="py-20 bg-gray-50 hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <form id="evaluacionNOM035">
+            <!-- Progress Bar -->
+            <div class="mb-8">
+                <div class="flex justify-between text-sm text-gray-600 mb-2">
+                    <span>Progreso</span>
+                    <span id="progresoTexto">0 de 0 preguntas</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div id="progresoBarra" class="bg-primary-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <!-- Questions Container -->
+            <div id="preguntasContainer" class="space-y-8">
+                <!-- Las preguntas se cargarán dinámicamente aquí -->
+            </div>
+            
+            <!-- Navigation Buttons -->
+            <div class="flex justify-between mt-12">
+                <button type="button" id="btnAnterior" onclick="preguntaAnterior()" 
+                        class="btn-secondary hidden">
+                    ← Anterior
+                </button>
+                
+                <div class="flex space-x-4">
+                    <button type="button" id="btnGuardar" onclick="guardarProgreso()" 
+                            class="btn-secondary">
+                        Guardar Progreso
+                    </button>
+                    
+                    <button type="button" id="btnSiguiente" onclick="preguntaSiguiente()" 
+                            class="btn-primary">
+                        Siguiente →
+                    </button>
+                    
+                    <button type="submit" id="btnFinalizar" class="btn-primary hidden">
+                        Finalizar Evaluación
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Results Section -->
+<section id="resultadosSection" class="py-20 bg-white hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                ¡Evaluación Completada!
+            </h2>
+            <p class="text-lg text-gray-700">
+                Gracias por completar la evaluación. Aquí tienes un resumen de tus resultados.
+            </p>
+        </div>
+        
+        <div id="resultadosContainer" class="space-y-8">
+            <!-- Los resultados se mostrarán aquí -->
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="{% url 'consultas:consultas' %}" class="btn-primary mr-4">
+                Solicitar Consulta
+            </a>
+            <a href="{% url 'evaluaciones:dashboard' %}" class="btn-secondary">
+                Ir al Dashboard
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+let preguntas = [];
+let respuestas = {};
+let preguntaActual = 0;
+let totalPreguntas = 0;
+
+// Cargar preguntas al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    cargarPreguntas();
+});
+
+function cargarPreguntas() {
+    fetch('{% url "evaluaciones:obtener_preguntas" %}', {
+        method: 'GET',
+        headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        preguntas = data.preguntas;
+        totalPreguntas = preguntas.length;
+        actualizarProgreso();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error al cargar las preguntas');
+    });
+}
+
+function iniciarEvaluacion() {
+    document.querySelector('section:nth-child(2)').classList.add('hidden');
+    document.getElementById('evaluacionForm').classList.remove('hidden');
+    mostrarPregunta(0);
+}
+
+function mostrarPregunta(indice) {
+    if (indice < 0 || indice >= preguntas.length) return;
+    
+    preguntaActual = indice;
+    const pregunta = preguntas[indice];
+    
+    const container = document.getElementById('preguntasContainer');
+    container.innerHTML = `
+        <div class="card">
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                    Pregunta ${indice + 1} de ${totalPreguntas}
+                </h3>
+                <p class="text-lg text-gray-700 mb-6">
+                    ${pregunta.texto}
+                </p>
+            </div>
+            
+            <div class="space-y-4">
+                ${pregunta.opciones.map((opcion, index) => `
+                    <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                        <input type="radio" name="pregunta_${pregunta.id}" value="${opcion.valor}" 
+                               class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300"
+                               ${respuestas[pregunta.id] == opcion.valor ? 'checked' : ''}>
+                        <span class="ml-3 text-gray-700">${opcion.texto}</span>
+                    </label>
+                `).join('')}
+            </div>
+        </div>
+    `;
+    
+    actualizarProgreso();
+    actualizarBotones();
+}
+
+function actualizarProgreso() {
+    const progreso = ((preguntaActual + 1) / totalPreguntas) * 100;
+    document.getElementById('progresoBarra').style.width = progreso + '%';
+    document.getElementById('progresoTexto').textContent = `${preguntaActual + 1} de ${totalPreguntas} preguntas`;
+}
+
+function actualizarBotones() {
+    const btnAnterior = document.getElementById('btnAnterior');
+    const btnSiguiente = document.getElementById('btnSiguiente');
+    const btnFinalizar = document.getElementById('btnFinalizar');
+    
+    // Botón anterior
+    if (preguntaActual === 0) {
+        btnAnterior.classList.add('hidden');
+    } else {
+        btnAnterior.classList.remove('hidden');
+    }
+    
+    // Botones siguiente/finalizar
+    if (preguntaActual === totalPreguntas - 1) {
+        btnSiguiente.classList.add('hidden');
+        btnFinalizar.classList.remove('hidden');
+    } else {
+        btnSiguiente.classList.remove('hidden');
+        btnFinalizar.classList.add('hidden');
+    }
+}
+
+function preguntaAnterior() {
+    if (preguntaActual > 0) {
+        guardarRespuestaActual();
+        mostrarPregunta(preguntaActual - 1);
+    }
+}
+
+function preguntaSiguiente() {
+    if (preguntaActual < totalPreguntas - 1) {
+        guardarRespuestaActual();
+        mostrarPregunta(preguntaActual + 1);
+    }
+}
+
+function guardarRespuestaActual() {
+    const pregunta = preguntas[preguntaActual];
+    const respuesta = document.querySelector(`input[name="pregunta_${pregunta.id}"]:checked`);
+    
+    if (respuesta) {
+        respuestas[pregunta.id] = parseInt(respuesta.value);
+    }
+}
+
+function guardarProgreso() {
+    guardarRespuestaActual();
+    
+    const formData = new FormData();
+    formData.append('respuestas', JSON.stringify(respuestas));
+    formData.append('pregunta_actual', preguntaActual);
+    
+    fetch('{% url "evaluaciones:guardar_progreso" %}', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Progreso guardado correctamente');
+        } else {
+            alert('Error al guardar el progreso');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error al guardar el progreso');
+    });
+}
+
+document.getElementById('evaluacionNOM035').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    guardarRespuestaActual();
+    
+    const formData = new FormData();
+    formData.append('respuestas', JSON.stringify(respuestas));
+    
+    fetch('{% url "evaluaciones:finalizar_evaluacion" %}', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            mostrarResultados(data.resultados);
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error al finalizar la evaluación');
+    });
+});
+
+function mostrarResultados(resultados) {
+    document.getElementById('evaluacionForm').classList.add('hidden');
+    document.getElementById('resultadosSection').classList.remove('hidden');
+    
+    const container = document.getElementById('resultadosContainer');
+    container.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            ${resultados.dominios.map(dominio => `
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">${dominio.nombre}</h3>
+                    <div class="mb-4">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-sm font-medium text-gray-700">Puntuación</span>
+                            <span class="text-sm text-gray-600">${dominio.puntuacion}%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary-600 h-2 rounded-full transition-all duration-300" 
+                                 style="width: ${dominio.puntuacion}%"></div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600">${dominio.interpretacion}</p>
+                </div>
+            `).join('')}
+        </div>
+        
+        <div class="card mt-8">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Resumen General</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-primary-600 mb-2">${resultados.puntuacion_general}%</div>
+                    <p class="text-gray-600">Puntuación General</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-green-600 mb-2">${resultados.nivel_riesgo}</div>
+                    <p class="text-gray-600">Nivel de Riesgo</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">${resultados.recomendaciones.length}</div>
+                    <p class="text-gray-600">Recomendaciones</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Recomendaciones</h3>
+            <div class="space-y-4">
+                ${resultados.recomendaciones.map(recomendacion => `
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <p class="text-sm text-blue-700">${recomendacion}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+// Cargar progreso guardado al iniciar
+function cargarProgreso() {
+    fetch('{% url "evaluaciones:cargar_progreso" %}', {
+        method: 'GET',
+        headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success && data.progreso) {
+            respuestas = data.progreso.respuestas || {};
+            preguntaActual = data.progreso.pregunta_actual || 0;
+            
+            if (Object.keys(respuestas).length > 0) {
+                const continuar = confirm('Tienes una evaluación en progreso. ¿Deseas continuar donde la dejaste?');
+                if (continuar) {
+                    iniciarEvaluacion();
+                }
+            }
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+// Cargar progreso al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    cargarProgreso();
+});
+</script>
+
+{% csrf_token %}
+{% endblock %}

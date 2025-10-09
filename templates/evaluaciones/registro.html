@@ -1,0 +1,314 @@
+{% extends 'base.html' %}
+
+{% block title %}Registro - PsyMetrics Global{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Crear Cuenta
+        </h1>
+        <p class="text-xl text-primary-100 max-w-3xl mx-auto">
+            Únete a PsyMetrics Global y comienza tu evaluación
+        </p>
+    </div>
+</section>
+
+<!-- Registration Form Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="card">
+            <form id="registroForm" class="space-y-6">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2">Información Personal</h2>
+                    <p class="text-gray-600">Completa tus datos para crear tu cuenta</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="nombre" class="block text-sm font-medium text-gray-700 mb-2">
+                            Nombre *
+                        </label>
+                        <input type="text" id="nombre" name="nombre" required
+                               class="input-field" placeholder="Tu nombre">
+                    </div>
+                    
+                    <div>
+                        <label for="apellido" class="block text-sm font-medium text-gray-700 mb-2">
+                            Apellido *
+                        </label>
+                        <input type="text" id="apellido" name="apellido" required
+                               class="input-field" placeholder="Tu apellido">
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                        Correo Electrónico *
+                    </label>
+                    <input type="email" id="email" name="email" required
+                           class="input-field" placeholder="tu@email.com">
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="telefono" class="block text-sm font-medium text-gray-700 mb-2">
+                            Teléfono
+                        </label>
+                        <input type="tel" id="telefono" name="telefono"
+                               class="input-field" placeholder="+52 55 1234 5678">
+                    </div>
+                    
+                    <div>
+                        <label for="fecha_nacimiento" class="block text-sm font-medium text-gray-700 mb-2">
+                            Fecha de Nacimiento
+                        </label>
+                        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"
+                               class="input-field">
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="empresa" class="block text-sm font-medium text-gray-700 mb-2">
+                        Empresa
+                    </label>
+                    <input type="text" id="empresa" name="empresa"
+                           class="input-field" placeholder="Nombre de tu empresa">
+                </div>
+                
+                <div>
+                    <label for="puesto" class="block text-sm font-medium text-gray-700 mb-2">
+                        Puesto
+                    </label>
+                    <input type="text" id="puesto" name="puesto"
+                           class="input-field" placeholder="Tu puesto de trabajo">
+                </div>
+                
+                <div>
+                    <label for="tipo_usuario" class="block text-sm font-medium text-gray-700 mb-2">
+                        Tipo de Usuario *
+                    </label>
+                    <select id="tipo_usuario" name="tipo_usuario" required class="input-field">
+                        <option value="">Selecciona un tipo</option>
+                        <option value="individual">Individual</option>
+                        <option value="empresarial">Empresarial</option>
+                    </select>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                            Contraseña *
+                        </label>
+                        <input type="password" id="password" name="password" required
+                               class="input-field" placeholder="Mínimo 8 caracteres">
+                    </div>
+                    
+                    <div>
+                        <label for="confirmar_password" class="block text-sm font-medium text-gray-700 mb-2">
+                            Confirmar Contraseña *
+                        </label>
+                        <input type="password" id="confirmar_password" name="confirmar_password" required
+                               class="input-field" placeholder="Repite tu contraseña">
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="acepto_terminos" name="acepto_terminos" type="checkbox" required
+                               class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                        <label for="acepto_terminos" class="font-medium text-gray-700">
+                            Acepto los <a href="#" class="text-primary-600 hover:text-primary-500">Términos y Condiciones</a> 
+                            y la <a href="#" class="text-primary-600 hover:text-primary-500">Política de Privacidad</a> *
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="acepto_marketing" name="acepto_marketing" type="checkbox"
+                               class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                        <label for="acepto_marketing" class="font-medium text-gray-700">
+                            Deseo recibir información sobre nuevos servicios y promociones
+                        </label>
+                    </div>
+                </div>
+                
+                <div>
+                    <button type="submit" class="btn-primary w-full">
+                        Crear Cuenta
+                    </button>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-gray-600">
+                        ¿Ya tienes una cuenta? 
+                        <a href="{% url 'evaluaciones:login' %}" class="text-primary-600 hover:text-primary-500 font-medium">
+                            Inicia sesión aquí
+                        </a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Beneficios de Registrarte
+            </h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                Descubre todas las ventajas de tener una cuenta en PsyMetrics Global
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Evaluaciones Ilimitadas</h3>
+                <p class="text-gray-600">Realiza todas las evaluaciones que necesites sin restricciones</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Historial de Resultados</h3>
+                <p class="text-gray-600">Accede a tu historial completo de evaluaciones y resultados</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Consultas Prioritarias</h3>
+                <p class="text-gray-600">Acceso prioritario a consultas con nuestros especialistas</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Reportes Detallados</h3>
+                <p class="text-gray-600">Descarga reportes en PDF de tus evaluaciones</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Comparación de Resultados</h3>
+                <p class="text-gray-600">Compara tus resultados a lo largo del tiempo</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Soporte 24/7</h3>
+                <p class="text-gray-600">Recibe soporte técnico cuando lo necesites</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.getElementById('registroForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Validar contraseñas
+    const password = document.getElementById('password').value;
+    const confirmarPassword = document.getElementById('confirmar_password').value;
+    
+    if (password !== confirmarPassword) {
+        alert('Las contraseñas no coinciden');
+        return;
+    }
+    
+    if (password.length < 8) {
+        alert('La contraseña debe tener al menos 8 caracteres');
+        return;
+    }
+    
+    const formData = new FormData();
+    formData.append('nombre', document.getElementById('nombre').value);
+    formData.append('apellido', document.getElementById('apellido').value);
+    formData.append('email', document.getElementById('email').value);
+    formData.append('telefono', document.getElementById('telefono').value);
+    formData.append('fecha_nacimiento', document.getElementById('fecha_nacimiento').value);
+    formData.append('empresa', document.getElementById('empresa').value);
+    formData.append('puesto', document.getElementById('puesto').value);
+    formData.append('tipo_usuario', document.getElementById('tipo_usuario').value);
+    formData.append('password', password);
+    formData.append('acepto_terminos', document.getElementById('acepto_terminos').checked);
+    formData.append('acepto_marketing', document.getElementById('acepto_marketing').checked);
+    
+    fetch('{% url "evaluaciones:registro" %}', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Cuenta creada correctamente. Ya puedes iniciar sesión.');
+            window.location.href = '{% url "evaluaciones:login" %}';
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error al crear la cuenta');
+    });
+});
+
+// Validación en tiempo real
+document.getElementById('confirmar_password').addEventListener('input', function() {
+    const password = document.getElementById('password').value;
+    const confirmarPassword = this.value;
+    
+    if (password !== confirmarPassword) {
+        this.setCustomValidity('Las contraseñas no coinciden');
+    } else {
+        this.setCustomValidity('');
+    }
+});
+
+document.getElementById('password').addEventListener('input', function() {
+    const confirmarPassword = document.getElementById('confirmar_password').value;
+    
+    if (confirmarPassword && this.value !== confirmarPassword) {
+        document.getElementById('confirmar_password').setCustomValidity('Las contraseñas no coinciden');
+    } else {
+        document.getElementById('confirmar_password').setCustomValidity('');
+    }
+});
+</script>
+
+{% csrf_token %}
+{% endblock %}

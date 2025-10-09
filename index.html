@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsyMetrics Global</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <!-- Logo -->
+                        <a href="#" class="flex items-center py-4 px-2">
+                            <span class="font-semibold text-gray-500 text-lg">PsyMetrics Global</span>
+                        </a>
+                    </div>
+                    <!-- Menú principal -->
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="#" class="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold">Inicio</a>
+                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Servicios</a>
+                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Acerca de</a>
+                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contacto</a>
+                    </div>
+                </div>
+                <!-- Menú móvil -->
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class="w-6 h-6 text-gray-500" x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menú móvil desplegable -->
+        <div class="hidden mobile-menu">
+            <ul>
+                <li><a href="#" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">Inicio</a></li>
+                <li><a href="#" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Servicios</a></li>
+                <li><a href="#" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Acerca de</a></li>
+                <li><a href="#" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section class="bg-green-100">
+        <div class="container mx-auto px-6 py-12">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 flex flex-col items-start">
+                    <h1 class="text-4xl font-bold text-gray-800 leading-tight">PsyMetrics Global: Soluciones en Psicometría</h1>
+                    <p class="mt-4 text-gray-600">Ofrecemos las mejores herramientas psicométricas para empresas e instituciones. Mejora tus procesos de selección y desarrollo con nosotros.</p>
+                    <div class="mt-6">
+                        <a href="#" class="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-700">Comenzar</a>
+                        <a href="#" class="ml-4 px-4 py-2 border border-green-500 text-green-500 font-semibold rounded-lg shadow-md hover:bg-green-500 hover:text-white">Saber más</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <img src="https://via.placeholder.com/500x300" alt="Hero Image" class="rounded-lg shadow-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Características -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Nuestros Servicios</h2>
+            <div class="flex flex-col md:flex-row md:space-x-6">
+                <!-- Característica 1 -->
+                <div class="bg-green-100 rounded-lg shadow-lg p-6 mb-6 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <div class="text-green-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 ml-4">Evaluaciones Psicométricas</h3>
+                    </div>
+                    <p class="text-gray-600">Realizamos evaluaciones psicométricas para selección de personal, desarrollo organizacional y más.</p>
+                </div>
+                <!-- Característica 2 -->
+                <div class="bg-green-100 rounded-lg shadow-lg p-6 mb-6 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <div class="text-green-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 ml-4">Consultoría</h3>
+                    </div>
+                    <p class="text-gray-600">Brindamos asesoría especializada en gestión humana y desarrollo de talento.</p>
+                </div>
+                <!-- Característica 3 -->
+                <div class="bg-green-100 rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="text-green-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 ml-4">Capacitación</h3>
+                    </div>
+                    <p class="text-gray-600">Capacitamos a tu equipo en el uso de herramientas psicométricas y en la interpretación de resultados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Testimonios -->
+    <section class="py-12 bg-green-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Testimonios</h2>
+            <div class="flex flex-col md:flex-row md:space-x-6">
+                <!-- Testimonio 1 -->
+                <div class="bg-white rounded-lg shadow-lg p-6 mb-6 md:mb-0">
+                    <p class="text-gray-600 italic">"PsyMetrics Global transformó nuestro proceso de selección. Ahora contamos con el personal más adecuado para cada puesto."</p>
+                    <div class="flex items-center mt-4">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://via.placeholder.com/50" alt="Avatar">
+                        <div>
+                            <h4 class="text-lg font-bold">Juan Pérez</h4>
+                            <p class="text-gray-500">Director de RH, Empresa XYZ</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 2 -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <p class="text-gray-600 italic">"La consultoría que recibimos fue excepcional. Nos ayudaron a desarrollar un plan de carrera para nuestros colaboradores."</p>
+                    <div class="flex items-center mt-4">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://via.placeholder.com/50" alt="Avatar">
+                        <div>
+                            <h4 class="text-lg font-bold">María García</h4>
+                            <p class="text-gray-500">Gerente General, Empresa ABC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="text-lg font-semibold">PsyMetrics Global</span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-green-500">Inicio</a>
+                    <a href="#" class="hover:text-green-500">Servicios</a>
+                    <a href="#" class="hover:text-green-500">Acerca de</a>
+                    <a href="#" class="hover:text-green-500">Contacto</a>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <p>&copy; 2023 PsyMetrics Global. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript para el menú móvil -->
+    <script>
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    </script>
+</body>
+</html>
