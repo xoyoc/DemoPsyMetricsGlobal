@@ -242,3 +242,4 @@ Para soporte técnico o consultas sobre el despliegue, contacta al equipo de des
 ## 📄 Licencia
 
 Este proyecto es propiedad de PsyMetrics Global. Todos los derechos reservados.
+

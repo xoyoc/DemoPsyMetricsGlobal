@@ -1,7 +1,7 @@
 #!/Users/xoyoc/Developer/Proyecto-PsyMetrics-Global/django/.venv_psmetrics/bin/python3.12
 import sys
-from django.core.management import execute_from_command_line
+from pygments.cmdline import main
 if __name__ == '__main__':
     if sys.argv[0].endswith('.exe'):
         sys.argv[0] = sys.argv[0][:-4]
-    sys.exit(execute_from_command_line())
+    sys.exit(main())

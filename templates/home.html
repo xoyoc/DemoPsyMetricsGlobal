@@ -4,114 +4,312 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="gradient-primary text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">
-            Soluciones Líderes en Evaluación de RRHH
-        </h1>
-        <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-            Transformamos la adquisición de talento a través de la ciencia. Evaluaciones psicométricas científicamente validadas para decisiones más inteligentes.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="{% url 'evaluaciones:servicios' %}" class="btn-primary">
-                Comenzar Evaluación
+<section class="relative py-32 md:py-40 overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop" 
+             alt="Professional team" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-800/90 to-primary-700/85"></div>
+    </div>
+    
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
+                Donde la Psicología se Encuentra con la Excelencia Corporativa
+            </h1>
+            <p class="text-xl md:text-2xl text-blue-50 mb-10 leading-relaxed drop-shadow-md">
+                Empoderamos a las organizaciones con evaluaciones psicológicas científicamente validadas para tomar decisiones más inteligentes en reclutamiento, desarrollo y gestión del talento.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'evaluaciones:servicios' %}" class="bg-white text-primary-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Comenzar Evaluación
+                </a>
+                <a href="{% url 'consultas:consultas' %}" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary-900 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Solicitar Consulta
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-16 bg-white relative overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-0 left-0 w-72 h-72 bg-accent-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-72 h-72 bg-primary-500 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center p-6 bg-gradient-to-br from-accent-50 to-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="text-5xl md:text-6xl font-bold text-accent-500 mb-2">{{ estadisticas.evaluaciones_realizadas|default:"10,000" }}+</div>
+                <p class="text-gray-700 text-lg font-medium">Evaluaciones Realizadas</p>
+            </div>
+            <div class="text-center p-6 bg-gradient-to-br from-primary-50 to-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="text-5xl md:text-6xl font-bold text-primary-600 mb-2">{{ estadisticas.clientes_corporativos|default:"200" }}+</div>
+                <p class="text-gray-700 text-lg font-medium">Clientes Corporativos</p>
+            </div>
+            <div class="text-center p-6 bg-gradient-to-br from-green-50 to-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="text-5xl md:text-6xl font-bold text-green-600 mb-2">{{ estadisticas.tasa_exito|default:"98" }}%</div>
+                <p class="text-gray-700 text-lg font-medium">Tasa de Éxito</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section with Images -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Acerca de PsyMetrics Global
+            </h2>
+            <p class="text-2xl text-gray-700 font-semibold">
+                Transformando la Adquisición de Talento a Través de la Ciencia
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="rounded-lg overflow-hidden shadow-lg">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" 
+                     alt="Colaboración profesional del equipo" 
+                     class="w-full h-80 object-cover">
+            </div>
+            <div class="rounded-lg overflow-hidden shadow-lg">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop" 
+                     alt="Análisis de evaluaciones" 
+                     class="w-full h-80 object-cover">
+            </div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-lg text-gray-700 leading-relaxed">
+                Somos un colectivo de psicólogos organizacionales, científicos de datos y profesionales de RRHH dedicados a revolucionar cómo las empresas identifican, evalúan y desarrollan el talento. Nuestras evaluaciones científicamente validadas proporcionan información profunda sobre habilidades cognitivas, rasgos de personalidad y competencias conductuales.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Nuestros Servicios
+            </h2>
+            <p class="text-xl text-gray-700">
+                Soluciones Integrales de Evaluación
+            </p>
+            <p class="text-gray-600 max-w-3xl mx-auto mt-4">
+                Nuestra colección de servicios de evaluación psicológica abarca diversas necesidades en cada etapa del proceso de gestión del talento.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Evaluaciones Cognitivas -->
+            <div class="card hover:shadow-xl transition-shadow duration-300">
+                <div class="w-14 h-14 bg-accent-100 rounded-full mb-4 flex items-center justify-center">
+                    <svg class="w-7 h-7 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">Evaluaciones Cognitivas</h3>
+                <ul class="space-y-2 text-gray-600 text-sm">
+                    <li class="flex items-start">
+                        <span class="text-accent-500 mr-2">•</span>
+                        <span>Razonamiento lógico</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent-500 mr-2">•</span>
+                        <span>Aptitud numérica</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent-500 mr-2">•</span>
+                        <span>Comprensión verbal</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Perfiles de Personalidad -->
+            <div class="card hover:shadow-xl transition-shadow duration-300">
+                <div class="w-14 h-14 bg-accent-100 rounded-full mb-4 flex items-center justify-center">
+                    <svg class="w-7 h-7 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">Perfiles de Personalidad</h3>
+                <ul class="space-y-2 text-gray-600 text-sm">
+                    <li class="flex items-start">
+                        <span class="text-accent-500 mr-2">•</span>
+                        <span>Rasgos Big Five</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent-500 mr-2">•</span>
+                        <span>Preferencias laborales</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent-500 mr-2">•</span>
+                        <span>Dinámicas de equipo</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Potencial de Liderazgo -->
+            <div class="card hover:shadow-xl transition-shadow duration-300">
+                <div class="w-14 h-14 bg-accent-100 rounded-full mb-4 flex items-center justify-center">
+                    <svg class="w-7 h-7 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">Potencial de Liderazgo</h3>
+                <ul class="space-y-2 text-gray-600 text-sm">
+                    <li class="flex items-start">
+                        <span class="text-accent-500 mr-2">•</span>
+                        <span>Toma de decisiones</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent-500 mr-2">•</span>
+                        <span>Inteligencia emocional</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent-500 mr-2">•</span>
+                        <span>Visión y estrategia</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Evaluación de Habilidades -->
+            <div class="card hover:shadow-xl transition-shadow duration-300">
+                <div class="w-14 h-14 bg-accent-100 rounded-full mb-4 flex items-center justify-center">
+                    <svg class="w-7 h-7 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">Evaluación de Habilidades</h3>
+                <ul class="space-y-2 text-gray-600 text-sm">
+                    <li class="flex items-start">
+                        <span class="text-accent-500 mr-2">•</span>
+                        <span>Competencia técnica</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent-500 mr-2">•</span>
+                        <span>Habilidades de comunicación</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent-500 mr-2">•</span>
+                        <span>Adaptabilidad</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="{% url 'evaluaciones:servicios' %}" class="btn-primary inline-block">
+                Ver Todos los Servicios
             </a>
-            <a href="{% url 'consultas:consultas' %}" class="btn-secondary">
+        </div>
+    </div>
+</section>
+
+<!-- Consultants Section -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Consultas Privadas
+            </h2>
+            <p class="text-xl text-gray-700">
+                Orientación Experta de Profesionales Líderes
+            </p>
+            <p class="text-gray-600 max-w-3xl mx-auto mt-4">
+                Programe consultas privadas con nuestro equipo de psicólogos certificados y especialistas en RRHH para discutir las necesidades específicas de su organización.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Consultant 1 -->
+            <div class="card text-center hover:shadow-xl transition-shadow duration-300">
+                <div class="mb-4">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=faces" 
+                         alt="Dra. Sarah Mitchell" 
+                         class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-accent-100">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-1">Dra. Sarah Mitchell</h3>
+                <p class="text-accent-500 font-medium mb-2">Psicóloga Organizacional</p>
+                <p class="text-sm text-gray-600">Desarrollo de Liderazgo y Evaluación Ejecutiva</p>
+            </div>
+            
+            <!-- Consultant 2 -->
+            <div class="card text-center hover:shadow-xl transition-shadow duration-300">
+                <div class="mb-4">
+                    <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&h=400&fit=crop&crop=faces" 
+                         alt="Dr. James Chen" 
+                         class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-accent-100">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-1">Dr. James Chen</h3>
+                <p class="text-accent-500 font-medium mb-2">Psicólogo Industrial</p>
+                <p class="text-sm text-gray-600">Adquisición de Talento y Sistemas de Selección</p>
+            </div>
+            
+            <!-- Consultant 3 -->
+            <div class="card text-center hover:shadow-xl transition-shadow duration-300">
+                <div class="mb-4">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=faces" 
+                         alt="Dra. María Rodríguez" 
+                         class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-accent-100">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-1">Dra. María Rodríguez</h3>
+                <p class="text-accent-500 font-medium mb-2">Psicóloga Clínica</p>
+                <p class="text-sm text-gray-600">Salud Mental y Bienestar Laboral</p>
+            </div>
+            
+            <!-- Consultant 4 -->
+            <div class="card text-center hover:shadow-xl transition-shadow duration-300">
+                <div class="mb-4">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=faces" 
+                         alt="Dr. David Thompson" 
+                         class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-accent-100">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-1">Dr. David Thompson</h3>
+                <p class="text-accent-500 font-medium mb-2">Psicólogo Cognitivo</p>
+                <p class="text-sm text-gray-600">Evaluación Cognitiva y Análisis de Rendimiento</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="{% url 'consultas:consultas' %}" class="btn-primary inline-block">
                 Solicitar Consulta
             </a>
         </div>
     </div>
 </section>
 
-<!-- Stats Section -->
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-                <div class="text-4xl font-bold text-accent-500 mb-2">{{ estadisticas.evaluaciones_realizadas }}+</div>
-                <p class="text-gray-600">Evaluaciones Realizadas</p>
-            </div>
-            <div>
-                <div class="text-4xl font-bold text-accent-500 mb-2">{{ estadisticas.clientes_corporativos }}+</div>
-                <p class="text-gray-600">Clientes Corporativos</p>
-            </div>
-            <div>
-                <div class="text-4xl font-bold text-accent-500 mb-2">{{ estadisticas.tasa_exito }}%</div>
-                <p class="text-gray-600">Tasa de Éxito</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Services Preview Section -->
-<section class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Nuestros Servicios
-            </h2>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-                Evaluaciones psicométricas científicamente validadas para optimizar la selección de talento
-            </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="card text-center">
-                <div class="w-16 h-16 bg-accent-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-semibold mb-4">Evaluaciones Cognitivas</h3>
-                <p class="text-gray-600 mb-6">Mide capacidades intelectuales y habilidades de razonamiento</p>
-                <a href="{% url 'evaluaciones:servicios' %}" class="btn-primary">
-                    Más Información
-                </a>
-            </div>
-            
-            <div class="card text-center">
-                <div class="w-16 h-16 bg-accent-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-semibold mb-4">Perfiles de Personalidad</h3>
-                <p class="text-gray-600 mb-6">Analiza rasgos de personalidad y compatibilidad cultural</p>
-                <a href="{% url 'evaluaciones:servicios' %}" class="btn-primary">
-                    Más Información
-                </a>
-            </div>
-            
-            <div class="card text-center">
-                <div class="w-16 h-16 bg-accent-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-semibold mb-4">Potencial de Liderazgo</h3>
-                <p class="text-gray-600 mb-6">Identifica habilidades de liderazgo y gestión de equipos</p>
-                <a href="{% url 'evaluaciones:servicios' %}" class="btn-primary">
-                    Más Información
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- CTA Section -->
-<section class="py-20 gradient-primary text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">
-            ¿Listo para Transformar tu Proceso de Selección?
+<section class="relative py-24 overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=1920&h=1080&fit=crop" 
+             alt="Team success" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-800/95 to-accent-900/95"></div>
+    </div>
+    
+    <!-- Content -->
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">
+            ¿Listo para Transformar su Proceso de Contratación?
         </h2>
-        <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-            Únete a las empresas líderes que confían en PsyMetrics Global para tomar decisiones de talento más inteligentes.
+        <p class="text-xl text-blue-50 mb-10 leading-relaxed drop-shadow-md">
+            Únase a más de 200 organizaciones líderes que confían en PsyMetrics Global para sus necesidades de evaluación de talento. Hablemos sobre cómo podemos ayudarle a construir un equipo más sólido.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="{% url 'evaluaciones:servicios' %}" class="bg-white text-primary-900 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200">
+            <a href="{% url 'evaluaciones:servicios' %}" class="bg-white text-primary-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5">
                 Comenzar Ahora
             </a>
-            <a href="{% url 'consultas:consultas' %}" class="border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-primary-900 transition-colors duration-200">
+            <a href="{% url 'consultas:consultas' %}" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary-900 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5">
                 Solicitar Demo
             </a>
         </div>

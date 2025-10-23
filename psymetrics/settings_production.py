@@ -93,3 +93,4 @@ DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'noreply@psymetricsglo
 
 # Configuración de Tailwind para producción
 TAILWIND_CLI_PATH = os.path.join(BASE_DIR, 'node_modules', '.bin', 'tailwind')
+

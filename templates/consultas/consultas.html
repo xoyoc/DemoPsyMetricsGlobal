@@ -4,12 +4,21 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+<section class="relative py-24 overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1920&h=1080&fit=crop" 
+             alt="Consulta profesional" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-800/90 to-primary-700/85"></div>
+    </div>
+    
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
             Consultas Privadas
         </h1>
-        <p class="text-xl text-primary-100 max-w-3xl mx-auto">
+        <p class="text-2xl text-blue-50 max-w-3xl mx-auto drop-shadow-md">
             Orientación Experta de Profesionales Líderes
         </p>
     </div>
@@ -19,7 +28,7 @@
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 Tipos de Consulta
             </h2>
             <p class="text-lg text-gray-700 max-w-3xl mx-auto">
@@ -28,50 +37,71 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div class="card text-center">
-                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Consulta por Video -->
+            <div class="card text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-primary-500">
+                <div class="w-20 h-20 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
+                    <svg class="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold mb-4">Consulta por Video</h3>
-                <p class="text-gray-600 mb-4">Sesiones virtuales individuales con nuestros expertos</p>
-                <div class="text-2xl font-bold text-primary-600 mb-4">60 minutos</div>
-                <a href="#psicologos" class="btn-primary">Reservar Consulta</a>
+                <h3 class="text-2xl font-bold mb-3 text-gray-900">Consulta por Video</h3>
+                <p class="text-gray-600 mb-4 px-4">Sesiones virtuales individuales con nuestros expertos</p>
+                <div class="flex items-center justify-center mb-6">
+                    <svg class="w-5 h-5 text-primary-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="text-3xl font-bold text-primary-600">60</span>
+                    <span class="text-gray-600 ml-2">minutos</span>
+                </div>
+                <a href="#psicologos" class="btn-primary inline-block w-full">Reservar Consulta</a>
             </div>
             
-            <div class="card text-center">
-                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Revisión de Evaluación -->
+            <div class="card text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-accent-500">
+                <div class="w-20 h-20 bg-gradient-to-br from-accent-100 to-accent-200 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
+                    <svg class="w-10 h-10 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold mb-4">Revisión de Evaluación</h3>
-                <p class="text-gray-600 mb-4">Análisis detallado e interpretación de resultados</p>
-                <div class="text-2xl font-bold text-primary-600 mb-4">45 minutos</div>
-                <a href="#psicologos" class="btn-primary">Reservar Consulta</a>
+                <h3 class="text-2xl font-bold mb-3 text-gray-900">Revisión de Evaluación</h3>
+                <p class="text-gray-600 mb-4 px-4">Análisis detallado e interpretación de resultados</p>
+                <div class="flex items-center justify-center mb-6">
+                    <svg class="w-5 h-5 text-accent-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="text-3xl font-bold text-accent-600">45</span>
+                    <span class="text-gray-600 ml-2">minutos</span>
+                </div>
+                <a href="#psicologos" class="btn-primary inline-block w-full">Reservar Consulta</a>
             </div>
             
-            <div class="card text-center">
-                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Planificación Estratégica -->
+            <div class="card text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-green-500">
+                <div class="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
+                    <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold mb-4">Planificación Estratégica</h3>
-                <p class="text-gray-600 mb-4">Desarrollo de estrategia de talento a largo plazo</p>
-                <div class="text-2xl font-bold text-primary-600 mb-4">90 minutos</div>
-                <a href="#psicologos" class="btn-primary">Reservar Consulta</a>
+                <h3 class="text-2xl font-bold mb-3 text-gray-900">Planificación Estratégica</h3>
+                <p class="text-gray-600 mb-4 px-4">Desarrollo de estrategia de talento a largo plazo</p>
+                <div class="flex items-center justify-center mb-6">
+                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="text-3xl font-bold text-green-600">90</span>
+                    <span class="text-gray-600 ml-2">minutos</span>
+                </div>
+                <a href="#psicologos" class="btn-primary inline-block w-full">Reservar Consulta</a>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Psychologists Section -->
-<section id="psicologos" class="py-20 bg-gray-50">
+<section id="psicologos" class="py-20 bg-gradient-to-b from-gray-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 Nuestros Especialistas
             </h2>
             <p class="text-lg text-gray-700 max-w-3xl mx-auto">
@@ -80,17 +110,26 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="card text-center">
-                <div class="w-24 h-24 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <span class="text-2xl font-bold text-primary-600">SM</span>
+            <!-- Dra. Sarah Mitchell -->
+            <div class="card text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                <div class="mb-6">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=faces" 
+                         alt="Dra. Sarah Mitchell" 
+                         class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-primary-100 shadow-lg">
                 </div>
-                <h3 class="text-xl font-semibold mb-2">Dra. Sarah Mitchell</h3>
-                <p class="text-primary-600 mb-2">Psicóloga Organizacional</p>
-                <p class="text-sm text-gray-600 mb-4">Desarrollo de Liderazgo y Evaluación Ejecutiva</p>
-                <p class="text-sm text-gray-500 mb-4">15+ años de experiencia</p>
+                <h3 class="text-xl font-bold mb-1 text-gray-900">Dra. Sarah Mitchell</h3>
+                <p class="text-primary-600 font-semibold mb-2">Psicóloga Organizacional</p>
+                <p class="text-sm text-gray-600 mb-3 px-2">Desarrollo de Liderazgo y Evaluación Ejecutiva</p>
+                <div class="flex items-center justify-center text-sm text-gray-500 mb-4">
+                    <svg class="w-4 h-4 mr-1 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                    </svg>
+                    15+ años de experiencia
+                </div>
                 <div class="mb-4">
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                        Disponible para consulta
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                        Disponible
                     </span>
                 </div>
                 <button onclick="solicitarConsulta(1)" class="btn-primary w-full">
@@ -98,17 +137,26 @@
                 </button>
             </div>
             
-            <div class="card text-center">
-                <div class="w-24 h-24 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <span class="text-2xl font-bold text-primary-600">JC</span>
+            <!-- Dr. James Chen -->
+            <div class="card text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                <div class="mb-6">
+                    <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&h=400&fit=crop&crop=faces" 
+                         alt="Dr. James Chen" 
+                         class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-primary-100 shadow-lg">
                 </div>
-                <h3 class="text-xl font-semibold mb-2">Dr. James Chen</h3>
-                <p class="text-primary-600 mb-2">Psicólogo Industrial</p>
-                <p class="text-sm text-gray-600 mb-4">Adquisición de Talento y Sistemas de Selección</p>
-                <p class="text-sm text-gray-500 mb-4">12+ años de experiencia</p>
+                <h3 class="text-xl font-bold mb-1 text-gray-900">Dr. James Chen</h3>
+                <p class="text-primary-600 font-semibold mb-2">Psicólogo Industrial</p>
+                <p class="text-sm text-gray-600 mb-3 px-2">Adquisición de Talento y Sistemas de Selección</p>
+                <div class="flex items-center justify-center text-sm text-gray-500 mb-4">
+                    <svg class="w-4 h-4 mr-1 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                    </svg>
+                    12+ años de experiencia
+                </div>
                 <div class="mb-4">
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                        Disponible para consulta
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                        Disponible
                     </span>
                 </div>
                 <button onclick="solicitarConsulta(2)" class="btn-primary w-full">
@@ -116,17 +164,26 @@
                 </button>
             </div>
             
-            <div class="card text-center">
-                <div class="w-24 h-24 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <span class="text-2xl font-bold text-primary-600">MR</span>
+            <!-- Dra. María Rodríguez -->
+            <div class="card text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                <div class="mb-6">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=faces" 
+                         alt="Dra. María Rodríguez" 
+                         class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-primary-100 shadow-lg">
                 </div>
-                <h3 class="text-xl font-semibold mb-2">Dra. María Rodríguez</h3>
-                <p class="text-primary-600 mb-2">Psicóloga Clínica</p>
-                <p class="text-sm text-gray-600 mb-4">Salud Mental y Bienestar Laboral</p>
-                <p class="text-sm text-gray-500 mb-4">10+ años de experiencia</p>
+                <h3 class="text-xl font-bold mb-1 text-gray-900">Dra. María Rodríguez</h3>
+                <p class="text-primary-600 font-semibold mb-2">Psicóloga Clínica</p>
+                <p class="text-sm text-gray-600 mb-3 px-2">Salud Mental y Bienestar Laboral</p>
+                <div class="flex items-center justify-center text-sm text-gray-500 mb-4">
+                    <svg class="w-4 h-4 mr-1 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                    </svg>
+                    10+ años de experiencia
+                </div>
                 <div class="mb-4">
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                        Disponible para consulta
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                        Disponible
                     </span>
                 </div>
                 <button onclick="solicitarConsulta(3)" class="btn-primary w-full">
@@ -134,17 +191,26 @@
                 </button>
             </div>
             
-            <div class="card text-center">
-                <div class="w-24 h-24 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <span class="text-2xl font-bold text-primary-600">DT</span>
+            <!-- Dr. David Thompson -->
+            <div class="card text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                <div class="mb-6">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=faces" 
+                         alt="Dr. David Thompson" 
+                         class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-primary-100 shadow-lg">
                 </div>
-                <h3 class="text-xl font-semibold mb-2">Dr. David Thompson</h3>
-                <p class="text-primary-600 mb-2">Psicólogo Cognitivo</p>
-                <p class="text-sm text-gray-600 mb-4">Evaluación Cognitiva y Análisis de Rendimiento</p>
-                <p class="text-sm text-gray-500 mb-4">18+ años de experiencia</p>
+                <h3 class="text-xl font-bold mb-1 text-gray-900">Dr. David Thompson</h3>
+                <p class="text-primary-600 font-semibold mb-2">Psicólogo Cognitivo</p>
+                <p class="text-sm text-gray-600 mb-3 px-2">Evaluación Cognitiva y Análisis de Rendimiento</p>
+                <div class="flex items-center justify-center text-sm text-gray-500 mb-4">
+                    <svg class="w-4 h-4 mr-1 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                    </svg>
+                    18+ años de experiencia
+                </div>
                 <div class="mb-4">
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                        Disponible para consulta
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                        Disponible
                     </span>
                 </div>
                 <button onclick="solicitarConsulta(4)" class="btn-primary w-full">
@@ -156,14 +222,29 @@
 </section>
 
 <!-- Modal for Consultation Request -->
-<div id="consultaModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden z-50">
+<div id="consultaModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden z-50 backdrop-blur-sm">
     <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white rounded-lg max-w-md w-full p-6">
-            <h3 class="text-lg font-semibold mb-4">Solicitar Consulta</h3>
+        <div class="bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl transform transition-all">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Solicitar Consulta</h3>
+                <button onclick="cerrarModal()" class="text-gray-400 hover:text-gray-600 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
             <form id="consultaForm">
-                <div class="space-y-4">
+                <div class="space-y-5">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de Consulta</label>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <span class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                </svg>
+                                Tipo de Consulta
+                            </span>
+                        </label>
                         <select id="tipoConsulta" class="input-field" required>
                             <option value="">Selecciona un tipo</option>
                             <option value="1">Consulta por Video (60 min)</option>
@@ -173,26 +254,47 @@
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Fecha y Hora</label>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <span class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                Fecha y Hora
+                            </span>
+                        </label>
                         <input type="datetime-local" id="fechaAgendada" class="input-field" required>
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Motivo de la Consulta</label>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <span class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                                </svg>
+                                Motivo de la Consulta
+                            </span>
+                        </label>
                         <textarea id="motivoConsulta" rows="3" class="input-field" placeholder="Describe brevemente el motivo de tu consulta..." required></textarea>
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Notas Adicionales</label>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <span class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                </svg>
+                                Notas Adicionales
+                            </span>
+                        </label>
                         <textarea id="notasCliente" rows="2" class="input-field" placeholder="Información adicional que consideres relevante..."></textarea>
                     </div>
                 </div>
                 
-                <div class="flex justify-end space-x-3 mt-6">
-                    <button type="button" onclick="cerrarModal()" class="btn-secondary">
+                <div class="flex justify-end space-x-3 mt-8">
+                    <button type="button" onclick="cerrarModal()" class="px-6 py-2.5 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors">
                         Cancelar
                     </button>
-                    <button type="submit" class="btn-primary">
+                    <button type="submit" class="px-6 py-2.5 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl">
                         Solicitar Consulta
                     </button>
                 </div>
@@ -207,6 +309,10 @@ let psicologoSeleccionado = null;
 function solicitarConsulta(psicologoId) {
     psicologoSeleccionado = psicologoId;
     document.getElementById('consultaModal').classList.remove('hidden');
+    // Animación de entrada
+    setTimeout(() => {
+        document.querySelector('#consultaModal > div > div').classList.add('scale-100');
+    }, 10);
 }
 
 function cerrarModal() {
@@ -234,23 +340,48 @@ document.getElementById('consultaForm').addEventListener('submit', function(e) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert('Consulta solicitada correctamente');
-            cerrarModal();
-            // Redirigir a mis consultas
-            window.location.href = '{% url "consultas:mis_consultas" %}';
+            // Mostrar mensaje de éxito
+            const modal = document.getElementById('consultaModal');
+            modal.innerHTML = `
+                <div class="flex items-center justify-center min-h-screen p-4">
+                    <div class="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl text-center">
+                        <div class="w-20 h-20 bg-green-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">¡Consulta Solicitada!</h3>
+                        <p class="text-gray-600 mb-6">Tu consulta ha sido agendada correctamente. Recibirás una confirmación por correo electrónico.</p>
+                        <button onclick="window.location.href='{% url "consultas:mis_consultas" %}'" class="btn-primary w-full">
+                            Ver Mis Consultas
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                window.location.href = '{% url "consultas:mis_consultas" %}';
+            }, 2000);
         } else {
             alert('Error: ' + data.message);
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Error al enviar la solicitud');
+        alert('Error al enviar la solicitud. Por favor, intenta nuevamente.');
     });
 });
 
 // Cerrar modal al hacer clic fuera
 document.getElementById('consultaModal').addEventListener('click', function(e) {
     if (e.target === this) {
+        cerrarModal();
+    }
+});
+
+// Cerrar modal con tecla ESC
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
         cerrarModal();
     }
 });
