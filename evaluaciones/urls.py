@@ -10,4 +10,5 @@ urlpatterns = [
     path('contacto/', views.ContactoView.as_view(), name='contacto'),
     path('dashboard/', views.DashboardView.as_view(), name='dashboard'),
     path('solicitar-evaluacion/', views.solicitar_evaluacion, name='solicitar_evaluacion'),
+    path('logout/', views.logout_view, name='logout'),
 ]

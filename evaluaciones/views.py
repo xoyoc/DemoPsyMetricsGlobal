@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from django.utils.decorators import method_decorator
 
 
@@ -40,3 +41,9 @@ def solicitar_evaluacion(request):
         return JsonResponse({'success': True, 'message': 'Solicitud enviada correctamente'})
     
     return JsonResponse({'success': False, 'message': 'Método no permitido'})
+
+
+def logout_view(request):
+    """Vista personalizada de logout que redirige al home"""
+    logout(request)
+    return redirect('evaluaciones:home')
