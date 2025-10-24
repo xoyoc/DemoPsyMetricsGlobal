@@ -19,6 +19,11 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+# Personalización del Admin
+admin.site.site_header = "PsyMetrics Global - Administración"
+admin.site.site_title = "PsyMetrics Global"
+admin.site.index_title = "Panel de Administración"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('evaluaciones.urls')),

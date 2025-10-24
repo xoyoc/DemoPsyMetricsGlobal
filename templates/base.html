@@ -53,8 +53,8 @@
                         <a href="{% url 'evaluaciones:dashboard' %}" class="btn-primary">Dashboard</a>
                         <a href="{% url 'evaluaciones:logout' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">Cerrar Sesión</a>
                     {% else %}
-                        <a href="{% url 'admin:login' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">Iniciar Sesión</a>
-                        <a href="#" class="btn-primary">Comenzar</a>
+                        <a href="{% url 'evaluaciones:login' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">Iniciar Sesión</a>
+                        <a href="{% url 'evaluaciones:register' %}" class="btn-primary">Comenzar</a>
                     {% endif %}
                 </div>
                 
@@ -82,8 +82,8 @@
                     <a href="{% url 'evaluaciones:dashboard' %}" class="btn-primary block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
                     <a href="{% url 'evaluaciones:logout' %}" class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium">Cerrar Sesión</a>
                 {% else %}
-                    <a href="{% url 'admin:login' %}" class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium">Iniciar Sesión</a>
-                    <a href="#" class="btn-primary block px-3 py-2 rounded-md text-base font-medium">Comenzar</a>
+                    <a href="{% url 'evaluaciones:login' %}" class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium">Iniciar Sesión</a>
+                    <a href="{% url 'evaluaciones:register' %}" class="btn-primary block px-3 py-2 rounded-md text-base font-medium">Comenzar</a>
                 {% endif %}
             </div>
         </div>
