@@ -3,282 +3,460 @@
 {% block title %}Dashboard - PsyMetrics Global{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">
-            Dashboard
-        </h1>
-        <p class="text-xl text-primary-100 max-w-3xl mx-auto">
-            Bienvenido a tu panel de control personalizado
-        </p>
+<!-- Hero Section con Bienvenida Personalizada e Imagen de Fondo -->
+<section class="relative py-16 overflow-hidden">
+    <!-- Imagen de Fondo -->
+    <!-- 
+    Opciones alternativas de imágenes (cambia el src para usar otra):
+    1. Workspace moderno: https://images.unsplash.com/photo-1497366216548-37526070297c
+    2. Equipo colaborando: https://images.unsplash.com/photo-1522071820081-009f0129c71c
+    3. Oficina moderna: https://images.unsplash.com/photo-1497366811353-6870744d04b2
+    4. Escritorio profesional: https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d
+    5. Persona trabajando: https://images.unsplash.com/photo-1551434678-e076c223a692
+    -->
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=600&fit=crop&q=80" 
+             alt="Workspace profesional" 
+             class="w-full h-full object-cover">
+        <!-- Overlay con gradiente para mejorar legibilidad -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-900/95 via-primary-800/90 to-primary-700/85"></div>
     </div>
-</section>
-
-<!-- Stats Section -->
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <div class="card text-center">
-                <div class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">12</h3>
-                <p class="text-gray-600">Evaluaciones Completadas</p>
+    
+    <!-- Decorative Elements -->
+    <div class="absolute inset-0 z-10 opacity-10">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-accent-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="text-white mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                    ¡Bienvenido{% if user.first_name %}, {{ user.first_name }}{% endif %}!
+                </h1>
+                <p class="text-xl text-primary-100 max-w-2xl">
+                    Tu panel de control personalizado para evaluaciones y consultas
+                </p>
             </div>
             
-            <div class="card text-center">
-                <div class="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                    </svg>
+            <!-- User Avatar and Info -->
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                <div class="flex items-center space-x-4">
+                    <div class="w-16 h-16 bg-accent-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                        {{ user.first_name.0|default:user.username.0|upper }}
+                    </div>
+                    <div class="text-white">
+                        <p class="font-semibold text-lg">{{ user.get_full_name|default:user.username }}</p>
+                        <p class="text-sm text-primary-200">{{ user.email }}</p>
+                    </div>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">3</h3>
-                <p class="text-gray-600">Consultas Programadas</p>
-            </div>
-            
-            <div class="card text-center">
-                <div class="w-16 h-16 bg-yellow-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">85%</h3>
-                <p class="text-gray-600">Promedio de Rendimiento</p>
-            </div>
-            
-            <div class="card text-center">
-                <div class="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">7</h3>
-                <p class="text-gray-600">Días Activo</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Quick Actions Section -->
-<section class="py-20 bg-gray-50">
+<!-- Stats Section con Tarjetas Mejoradas -->
+<section class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <!-- Título de Sección -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-3">Tu Progreso</h2>
+            <p class="text-gray-600">Resumen de tu actividad en PsyMetrics Global</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Evaluaciones Completadas -->
+            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 hover:border-accent-200 transform hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent-400 to-accent-600 rounded-xl flex items-center justify-center shadow-lg">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-sm font-medium text-accent-600 bg-accent-50 px-3 py-1 rounded-full">+12%</span>
+                </div>
+                <h3 class="text-3xl font-bold text-gray-900 mb-1">12</h3>
+                <p class="text-gray-600 text-sm font-medium">Evaluaciones Completadas</p>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <p class="text-xs text-gray-500">Última: Hace 2 horas</p>
+                </div>
+            </div>
+            
+            <!-- Consultas Programadas -->
+            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 hover:border-primary-200 transform hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-lg">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">Activo</span>
+                </div>
+                <h3 class="text-3xl font-bold text-gray-900 mb-1">3</h3>
+                <p class="text-gray-600 text-sm font-medium">Consultas Programadas</p>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <p class="text-xs text-gray-500">Próxima: Mañana 10:00 AM</p>
+                </div>
+            </div>
+            
+            <!-- Promedio de Rendimiento -->
+            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 hover:border-green-200 transform hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">↑ 5%</span>
+                </div>
+                <h3 class="text-3xl font-bold text-gray-900 mb-1">85%</h3>
+                <p class="text-gray-600 text-sm font-medium">Promedio de Rendimiento</p>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Días Activo -->
+            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 hover:border-purple-200 transform hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-sm font-medium text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Esta semana</span>
+                </div>
+                <h3 class="text-3xl font-bold text-gray-900 mb-1">7</h3>
+                <p class="text-gray-600 text-sm font-medium">Días Activo</p>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <p class="text-xs text-gray-500">Último acceso: Hoy</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Actions Section con Diseño Mejorado -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
                 Acciones Rápidas
             </h2>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                 Accede rápidamente a las funciones más utilizadas
             </p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="card text-center hover:shadow-lg transition-shadow">
-                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                    </svg>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Nueva Evaluación -->
+            <a href="{% url 'evaluaciones:servicios' %}" class="group bg-gradient-to-br from-accent-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-accent-100 hover:border-accent-300 transform hover:-translate-y-2">
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-accent-400 to-accent-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-accent-600 transition-colors">Nueva Evaluación</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Comienza una nueva evaluación psicométrica NOM-035 o personalizada</p>
+                    <span class="inline-flex items-center text-accent-600 font-semibold group-hover:gap-3 transition-all">
+                        Comenzar ahora
+                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </span>
                 </div>
-                <h3 class="text-xl font-semibold mb-4">Nueva Evaluación</h3>
-                <p class="text-gray-600 mb-6">Comienza una nueva evaluación psicométrica</p>
-                <a href="{% url 'evaluaciones:servicios' %}" class="btn-primary">
-                    Comenzar Evaluación
-                </a>
-            </div>
+            </a>
             
-            <div class="card text-center hover:shadow-lg transition-shadow">
-                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                    </svg>
+            <!-- Solicitar Consulta -->
+            <a href="{% url 'consultas:consultas' %}" class="group bg-gradient-to-br from-primary-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-primary-100 hover:border-primary-300 transform hover:-translate-y-2">
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">Solicitar Consulta</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Agenda una consulta con nuestros psicólogos especializados</p>
+                    <span class="inline-flex items-center text-primary-600 font-semibold group-hover:gap-3 transition-all">
+                        Agendar cita
+                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </span>
                 </div>
-                <h3 class="text-xl font-semibold mb-4">Solicitar Consulta</h3>
-                <p class="text-gray-600 mb-6">Programa una consulta con nuestros especialistas</p>
-                <a href="{% url 'consultas:consultas' %}" class="btn-primary">
-                    Solicitar Consulta
-                </a>
-            </div>
+            </a>
             
-            <div class="card text-center hover:shadow-lg transition-shadow">
-                <div class="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                    </svg>
+            <!-- Ver Resultados -->
+            <a href="#resultados" class="group bg-gradient-to-br from-purple-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-purple-100 hover:border-purple-300 transform hover:-translate-y-2">
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">Ver Resultados</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Revisa tus evaluaciones completadas y descarga reportes</p>
+                    <span class="inline-flex items-center text-purple-600 font-semibold group-hover:gap-3 transition-all">
+                        Ver historial
+                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </span>
                 </div>
-                <h3 class="text-xl font-semibold mb-4">Ver Resultados</h3>
-                <p class="text-gray-600 mb-6">Revisa tus evaluaciones completadas</p>
-                <a href="#" class="btn-primary">
-                    Ver Resultados
-                </a>
-            </div>
+            </a>
         </div>
     </div>
 </section>
 
-<!-- Recent Activity Section -->
-<section class="py-20 bg-white">
+<!-- Recent Activity Section con Timeline -->
+<section class="py-16 bg-gray-50" id="resultados">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
                 Actividad Reciente
             </h2>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-                Mantente al día con tu actividad más reciente
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Manténte al día con tu actividad más reciente
             </p>
         </div>
         
-        <div class="space-y-6">
-            <div class="card">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+        <!-- Timeline Moderna -->
+        <div class="max-w-4xl mx-auto">
+            <div class="space-y-4">
+                <!-- Item 1: Evaluación Completada -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border-l-4 border-green-500">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-1">Evaluación NOM-035 Completada</h3>
+                                <p class="text-gray-600 text-sm mb-2">Has completado exitosamente la evaluación de factores de riesgo psicosocial</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Hace 2 horas
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900">Evaluación NOM-035 Completada</h3>
-                            <p class="text-gray-600">Hace 2 horas</p>
-                        </div>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800 whitespace-nowrap">
+                            ✓ Completada
+                        </span>
                     </div>
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                        Completada
-                    </span>
                 </div>
-            </div>
-            
-            <div class="card">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                            </svg>
+                
+                <!-- Item 2: Consulta Programada -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border-l-4 border-yellow-500">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-1">Consulta con Dr. Martínez</h3>
+                                <p class="text-gray-600 text-sm mb-2">Consulta de seguimiento sobre evaluación de liderazgo</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Mañana a las 10:00 AM
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900">Consulta Programada</h3>
-                            <p class="text-gray-600">Mañana a las 10:00 AM</p>
-                        </div>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800 whitespace-nowrap">
+                            ⏱ Pendiente
+                        </span>
                     </div>
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
-                        Pendiente
-                    </span>
                 </div>
-            </div>
-            
-            <div class="card">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                            </svg>
+                
+                <!-- Item 3: Reporte Generado -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border-l-4 border-blue-500">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-1">Reporte de Evaluación Disponible</h3>
+                                <p class="text-gray-600 text-sm mb-2">Tu reporte detallado de la evaluación NOM-035 está listo para descargar</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Ayer a las 3:45 PM
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900">Reporte Generado</h3>
-                            <p class="text-gray-600">Ayer</p>
-                        </div>
+                        <a href="#" class="inline-flex items-center px-4 py-2 rounded-lg text-xs font-semibold bg-blue-600 text-white hover:bg-blue-700 transition-colors whitespace-nowrap">
+                            ↓ Descargar
+                        </a>
                     </div>
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                        Disponible
-                    </span>
+                </div>
+                
+                <!-- Item 4: Nueva Evaluación Asignada -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border-l-4 border-purple-500">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-1">Nueva Evaluación Asignada</h3>
+                                <p class="text-gray-600 text-sm mb-2">Se te ha asignado una evaluación de Habilidades de Liderazgo</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Hace 3 días
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{% url 'evaluaciones:servicios' %}" class="inline-flex items-center px-4 py-2 rounded-lg text-xs font-semibold bg-purple-600 text-white hover:bg-purple-700 transition-colors whitespace-nowrap">
+                            Iniciar →
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Progress Chart Section -->
-<section class="py-20 bg-gray-50">
+<!-- Progress Chart Section Mejorada -->
+<section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
                 Progreso de Evaluaciones
             </h2>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                 Visualiza tu progreso en las diferentes áreas evaluadas
             </p>
         </div>
         
-        <div class="card">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Áreas Evaluadas -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-6">Áreas Evaluadas</h3>
-                    <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+                        <svg class="w-6 h-6 text-accent-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        Áreas Evaluadas
+                    </h3>
+                    <div class="space-y-6">
+                        <!-- Ambiente de Trabajo -->
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium text-gray-700">Ambiente de Trabajo</span>
-                                <span class="text-sm text-gray-600">85%</span>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-sm font-semibold text-gray-900">Ambiente de Trabajo</span>
+                                <span class="text-sm font-bold text-green-600">85%</span>
                             </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-primary-600 h-2 rounded-full" style="width: 85%"></div>
+                            <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                <div class="bg-gradient-to-r from-green-400 to-green-600 h-3 rounded-full shadow-inner" style="width: 85%"></div>
                             </div>
                         </div>
                         
+                        <!-- Factores de Riesgo -->
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium text-gray-700">Factores de Riesgo</span>
-                                <span class="text-sm text-gray-600">72%</span>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-sm font-semibold text-gray-900">Factores de Riesgo</span>
+                                <span class="text-sm font-bold text-yellow-600">72%</span>
                             </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-primary-600 h-2 rounded-full" style="width: 72%"></div>
+                            <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 h-3 rounded-full shadow-inner" style="width: 72%"></div>
                             </div>
                         </div>
                         
+                        <!-- Organización del Tiempo -->
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium text-gray-700">Organización del Tiempo</span>
-                                <span class="text-sm text-gray-600">90%</span>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-sm font-semibold text-gray-900">Organización del Tiempo</span>
+                                <span class="text-sm font-bold text-blue-600">90%</span>
                             </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-primary-600 h-2 rounded-full" style="width: 90%"></div>
+                            <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-3 rounded-full shadow-inner" style="width: 90%"></div>
                             </div>
                         </div>
                         
+                        <!-- Liderazgo -->
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium text-gray-700">Liderazgo</span>
-                                <span class="text-sm text-gray-600">68%</span>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-sm font-semibold text-gray-900">Liderazgo</span>
+                                <span class="text-sm font-bold text-orange-600">68%</span>
                             </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-primary-600 h-2 rounded-full" style="width: 68%"></div>
+                            <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                <div class="bg-gradient-to-r from-orange-400 to-orange-600 h-3 rounded-full shadow-inner" style="width: 68%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Recomendaciones -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-6">Recomendaciones</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+                        <svg class="w-6 h-6 text-primary-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                        Recomendaciones
+                    </h3>
                     <div class="space-y-4">
-                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
-                            <div class="flex">
-                                <div class="ml-3">
-                                    <p class="text-sm text-blue-700">
-                                        <strong>Ambiente de Trabajo:</strong> Excelente desempeño. Mantén las buenas prácticas actuales.
-                                    </p>
-                                </div>
+                        <!-- Recomendación 1 -->
+                        <div class="bg-gradient-to-r from-green-50 to-green-100 border-l-4 border-green-500 p-5 rounded-r-xl shadow-sm">
+                            <div class="flex items-start">
+                                <svg class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <p class="text-sm text-green-800">
+                                    <strong class="font-bold">Ambiente de Trabajo:</strong> Excelente desempeño. Mantén las buenas prácticas actuales y continúa fomentando un entorno positivo.
+                                </p>
                             </div>
                         </div>
                         
-                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
-                            <div class="flex">
-                                <div class="ml-3">
-                                    <p class="text-sm text-yellow-700">
-                                        <strong>Factores de Riesgo:</strong> Considera implementar estrategias de manejo del estrés.
-                                    </p>
-                                </div>
+                        <!-- Recomendación 2 -->
+                        <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 border-l-4 border-yellow-500 p-5 rounded-r-xl shadow-sm">
+                            <div class="flex items-start">
+                                <svg class="w-5 h-5 text-yellow-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                </svg>
+                                <p class="text-sm text-yellow-800">
+                                    <strong class="font-bold">Factores de Riesgo:</strong> Considera implementar estrategias de manejo del estrés y técnicas de relajación para mejorar tu bienestar.
+                                </p>
                             </div>
                         </div>
                         
-                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
-                            <div class="flex">
-                                <div class="ml-3">
-                                    <p class="text-sm text-green-700">
-                                        <strong>Organización del Tiempo:</strong> Destacado rendimiento en gestión del tiempo.
-                                    </p>
-                                </div>
+                        <!-- Recomendación 3 -->
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 border-l-4 border-blue-500 p-5 rounded-r-xl shadow-sm">
+                            <div class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                                <p class="text-sm text-blue-800">
+                                    <strong class="font-bold">Organización del Tiempo:</strong> Destacado rendimiento en gestión del tiempo. Comparte tus técnicas con tu equipo para maximizar resultados.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Recomendación 4 -->
+                        <div class="bg-gradient-to-r from-orange-50 to-orange-100 border-l-4 border-orange-500 p-5 rounded-r-xl shadow-sm">
+                            <div class="flex items-start">
+                                <svg class="w-5 h-5 text-orange-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                                </svg>
+                                <p class="text-sm text-orange-800">
+                                    <strong class="font-bold">Liderazgo:</strong> Considera programar una consulta con nuestros especialistas para desarrollar tus habilidades de liderazgo.
+                                </p>
                             </div>
                         </div>
                     </div>
